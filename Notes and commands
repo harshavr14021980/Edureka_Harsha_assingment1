@@ -65,8 +65,24 @@ account setting dev setting personal token generatetoken
  check Ansible-vault
  
  
+Create a freestyle project with the name QA_UNIT_TEST in Jenkins that is driven from job 
+DEVELOPER_CODE_REVIEW and performs unit testing 
+Take a screenshot of the console output showing a successful build of unit testing
+• Create a freestyle project with the name QA_METRICS _CHECK in Jenkins to check the test cases.
+Make sure the Cobertura plugin is installed in Jenkins
+Take a screenshot of the metrics from the dashboard of the project.
+• Create a freestyle project with the name QA_PACKAGE in Jenkins to create an executable jar/war 
+file.
+Take a screenshot of the target folder created in the workspace.
+• Create a pipeline named SAMPLE_COMPILE_VIEW with Build Pipeline View option, select
+DEVELOPER_COMPILE project under layout section, and run the pipeline to check the console 
+output
+ 
  Jenkins assingment :  
  https://github.com/harshavr14021980/JenkinsAssingment.git
+ 
+ 
+ 
  
  Path for Testjob
  PostBuld Job  --> publish junit test result

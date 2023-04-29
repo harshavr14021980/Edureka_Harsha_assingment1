@@ -1,0 +1,175 @@
+revert vs reset
+merge vs rebase
+Rebase is moving series of commits to 
+
+github register
+
+account setting dev setting personal token generatetoken
+ git pull/fetch
+ 
+ https://github.com/harshavr14021980/Edureka_Harsha_assingment1.git
+ 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
+ 
+ git fetch just "downloads" the changes from the remote to your local repository. git pull downloads the changes and merges them into your current branch
+ 
+ sudo apt-list --installed jenkins
+ sudo apt-get update jenkins
+ 
+ sudo systemctl start jenkins
+ sudo systemctl status jenkins   ---> get the password first time to unlock jenkins
+ sudo netstat -antup | grep 8080
+ 
+ once started
+ 
+ one firtfox
+ hostnamelinuxbox:8080   will open jenkins  give password
+ install required plugins
+ 
+ 
+ Config changes
+ vi /etc/default/jenkins
+ restart jenkins
+ 
+ 231d401f0bec4a73a4a71af83365cf9b
+ 
+ https://github.com/bhasker-manikyala/DevOpsClasscodes.git
+ 
+ Declartive pipeline in jenkins
+ 
+ pipeline
+ {
+ agent any
+ 
+	 tools {
+	 maven 'mymaven'
+	 
+	 }
+	 
+	 stages{
+		stage('CloneRepo'){
+		
+	 }
+ }
+ 
+ Ansible role
+ 
+ ansible-galaxy init apache
+ cd apache
+ 
+ 
+ HW:
+ Write playbook to automate apache playbook installation:
+ Write playbook to install and configure mysql DB
+ mysql.yml   --> to  be encrypted playbook :  no one shld read it as db passwd is there
+ 
+ check Ansible-vault
+ 
+ 
+ Jenkins assingment :  
+ https://github.com/harshavr14021980/JenkinsAssingment.git
+ 
+ Sample Tomcat User.xml
+ 
+ <role rolename="admin-gui"/>
+  <role rolename="admin-script"/>
+  <role rolename="manager-gui"/>
+  <role rolename="manager-status"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <user name="admin" password="admin" roles="admin-gui,admin-script,manager-gui,manager-status,manager-script,manager-jmx"/>
+ 
+ Docker
+ 
+ install docker CE  --> cleint edition check apr 27 video
+ 
+ 
+ which docker  --> Docker main
+ which dockerd --> docker daemon
+ 
+ docker version
+ 
+ dockerd works on container  most imp to deal with docker
+ 
+ register at   
+ hub.docker.com
+ 
+ in the docker file:
+ FROM is taken from docker hub...     Some existing image is mapped.
+ 
+ docker image ls
+ docker image build -t custom_apache .      ---> bild image using commands from dockerfile
+ docker image history custom_apache:latest  -->image layers
+  docker image inspect custom_apache:latest   --> properties of image
+  docker search nginx  --> from hub.docker.com
+  docker image pull nginx --> download latest
+  docker image pull nginx:1.7.9  -->downoad given version
+  docker image rm nginx --> removes image if no container is running
+  docker image prune -a --> removes all unused images
+  docker image tag custom_apache edurekadevops/custom:v1  -->rename image so that can be uploaded
+  docker login 
+  docker image push edurekadevops/custom:v1 
+  
+  
+  docker container ls
+  docker container run -d --name websvc -p 80:80 custom_apache  --> start container with name websvc
+  docker container logs websvc
+  docker container inspect websvc
+  docker container exec -it websvc bash  -- login into container
+  
+  
+  FROM ubuntu:18.04
+RUN apt-get update
+RUN apt-get install openjdk-11-jdk wget
+
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.74/bin/apache-tomcat-9.0.74.tar.gz -o /tmp/tomcat.tar.gz
+RUN cd /tmp && tar -xvzf tomcat.tar.gz
+RUN mv /tmp/apache-tomcat-9.0.74  /opt/tomcat
+COPY sample.war /opt/tomcat/webapps
+EXPOSE 8080
+CMD /opt/tomcat/bin/catalina.sh run
+
+
+OR
+
+
+
+
+FROM tomcat:8-jre8   --- Ready-made Tomcat image from DockerHub
+MAINTAINER "Bhasker Reddy"
+COPY ./sample.war /usr/local/tomcat/webapps
+
+$ docker image ls
+$ docker image build -t custom_apache .   ---> Current working directory, Dockerfile
+$ docker image history custom_apache:latest  -- Image layers
+$ docker image inspect custom_apache:latest  -- Properties of an Image
+$ docker search nginx   --- Search image from hub.docker.com
+$ docker image pull nginx  --- Download latest image from hub.docker.com
+$ docker image pull nginx:1.7.9  -- Specific version of image
+$ docker image rm nginx  -- Removes an image(If no containers are running with this image)
+$ docker image prune -a  --- Remove all unused images
+$ docker image tag custom_apache  edurekadevops/custom:v1   --- Rename images
+$ docker login
+$ docker image push edurekadevops/custom:v1
+
+
+Dockerhub  --- Free plan vs Paid plan
+
+
+Free plan  --- Public repo/1 Private repo  --- Upgrade 
+
+
+
+
+
+$ docker container ls
+$ docker container run -d --name websvc -p 80:80 custom_apache
+$ docker container logs websvc
+$ docker container inspect websvc
+$ docker container exec -it websvc bash  -- login
+   Ctrl+p+q  -- Logout
+$ docker container stop websvc
+$ docker container start websvc
+$ docker container rm websvc(container is stopped before removing it)
+  
+  
+ 

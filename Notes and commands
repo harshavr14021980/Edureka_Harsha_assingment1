@@ -68,6 +68,25 @@ account setting dev setting personal token generatetoken
  Jenkins assingment :  
  https://github.com/harshavr14021980/JenkinsAssingment.git
  
+ Path for Testjob
+ PostBuld Job  --> publish junit test result
+ test report xml -> target/surefile-reports/*.xml
+ 
+  Metric:
+ goal 
+ cobertura:cobertura -Dcobertura.report.format=xml
+ ls -l /etc/alternatives/java
+ 
+ Save the link for resetting after execution
+ sudo unlink /etc/alternatives/java
+ 
+ sudo ln -s /usr/lib/jvm/java-8-oracle/bin/java /etc/alternatives/java
+ 
+ check by
+ java -version
+ 
+ 
+ 
  Sample Tomcat User.xml
  
  <role rolename="admin-gui"/>

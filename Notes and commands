@@ -1,3 +1,42 @@
+jar -cvf projectname.war *
+
+
+
+FROM tomcat:8-jre8
+MAINTAINER "harsha.reddy"
+jar -cvf projectname.war *
+COPY ./projectname.war /usr/local/tomcat/webpages
+
+
+docker image build -t custom_hvr .
+docker volume create projectvolume
+
+docker container run -d –name hvrwebsvc --mount src=projectvolume,destination=/mnt -p 80:80 custom_hvr:latest 
+
+docker container run -d --name contImageName --mount src=volumename,destination=/mnt nginx
+
+docker tag custom_hvr:v1 harshavr14:custom_hvr
+docker push harshavr14:custom_hvr
+
+mkdir GIT_user2
+cd GIT_user2
+git init
+git config --global user.email "harshavr14@gmail.com"
+git config --global user.name "Harsha Reddy"
+git clone https://github.com/harshavr14021980/Edureka_Harsha_assingment1.git
+
+
+docker swarm init  
+docker service create -p 8001:80 --name ebsvc --replicas=3 nginx  
+
+
+
+
+
+
+
+
+
 revert vs reset
 merge vs rebase
 Rebase is moving series of commits to 
